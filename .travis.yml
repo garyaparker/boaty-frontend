@@ -7,5 +7,5 @@ deploy:
     secure: s5BbYxI9IkdgbuHj6NmeCAokj+pykt9/Pt1rg7JYNgjUlHkxIzEfBHOytPGuneAz9ban6Sa0XVaoDWpYU+Fdnej+V/ASEVjMFdLzgaV8LTpZwPXWs5X65TlxH6Qh4dteHnkBEjMHIqVarZVnJdhCUhHFRDHEKheYRKYOn1RReVI+iJecJZmMr0snqBNS1c6sQYskoUrV/usg2XK9m86vXs877cUf3mRDufiF8yixEr46DXNdsiMlZ+VKxcCUdVksyF53qOfyRzi++miPhjrMeBvCm7FYZOgtd93T+wiVl/7IQercdVHSs+ePX/xA+ra4bvAgJZYTFWpBN/zBbPPix5kufO6tB3vj0OE6SZVOhBqTkzGSsVqgv+K4KiVElKtOlGBx7xpzMcWUXCXu8aHM0V0hOfk2GhWT/B9MZyLmBSK2NQSz8YPkRkN/oNnjW/xY3OyQ16AawF/xklBlcxpkOphLsqj5Afb+hITNNh4R38jjxrKlLqR+R7YvN65GBB03CaP3wqcYkggEDWTh+Qg3yk0VVsXkbtmHo2KLVl+f69bdivLI5sHOB4BuyoiQQpBA+4QJ4OuK9b2ErQaN6RFHMNuDG7fVyjGQEp6D0SlzDKuVsAipVNMxBlbhP8sEXuP53bGFSGQOb0CRDQK0hw3r+CU7k9QRRd91U+R+r7ZTXnI=
   region: us-east-1
   app: boaty-frontend
-  env: BoatyFrontend-env
+  env: Boatyfrontend-env
   bucket_name: elasticbeanstalk-us-east-1-076182840641
