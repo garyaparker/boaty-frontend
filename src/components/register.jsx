@@ -99,10 +99,11 @@ export default class Register extends Component {
               <video ref={(video) => this.getVideoRef(video)} className="img-fluid"></video>
               <CardBody>
                 <CardTitle>Register</CardTitle>
-                <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                <Button onClick={this.handleClickStart.bind(this)}>Start Capture</Button>
-                <Button onClick={this.handleClickCapture.bind(this)}>Capture Boaty</Button>
-                <Button onClick={this.handleClickRegister.bind(this)}>Register Boaty</Button>
+                <div className="d-flex flex-column flex-md-row">
+                  <Button className="" onClick={this.handleClickStart.bind(this)}>Start Capture</Button>
+                  <Button onClick={this.handleClickCapture.bind(this)}>Capture Boaty</Button>
+                  <Button onClick={this.handleClickRegister.bind(this)}>Register Boaty</Button>
+                </div>
               </CardBody>
             </Card>
           </div>
