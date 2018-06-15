@@ -7,11 +7,11 @@ app.set('trust proxy', true);
 
 // Redirect HTTP to HTTPS
 app.get('*', (req, res, next) => {
-  req.protocol === 'http' ?
+  req.protocol === 'http' && process.env.NODE_ENV === 'production' ?
     res.redirect('https://' + req.hostname + req.url) :  
     next();
 });
 
-app.use((req, res) => res.send('hello boatz'));
+app.use(express.static('dist'));
 
 app.listen(process.env.PORT || 3000);
