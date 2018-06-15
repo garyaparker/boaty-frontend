@@ -15,3 +15,7 @@ deploy:
   app: BoatyFrontend
   env: Boatyfrontend-env
   bucket_name: elasticbeanstalk-us-east-1-076182840641
+addons:
+  artifacts:
+    paths:
+      - dist
