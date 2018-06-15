@@ -6,6 +6,7 @@ install:
   - npm run build
   - npm prune --production
 deploy:
+  skip_cleanup: true
   provider: elasticbeanstalk
   access_key_id:
     secure: fnQrxuVaEYFCaEY/Sr3hGskV/mvsRawi4TNt4BUm0mviPPAA/jeuWCQ7piVS4DHCJEH6Umxsag6VLXuVZyPL7pNwbDEULJdpjX0CWV62idfzOYqv6SV6YLvus5LfVTJOMxvmeq6yqgR2ud2r6nWtfBlpA60X1jtAFLbqbp6cGwtmF2+lJex1nt5Js7AbvjQyIdBQ+3OjOu0ZMNfLteB0fyfK2JQ8yinz7QY3rWx0cqrx4HYPhEc9rgznjjy5mmDUv1bO5bOBXCkGZCLaLfY3P4iieEDlTQDqlL7f/TYusIYH0S2FwnNEfR5YyEcYuadL8NifFuVIYIWv24VtH5jkFLepME37jRaVK5YvDr/sTMU0WB3V87+5humgVbtpU04AdzNgjcaQ8c0qujlaXd8ivkVZZnrPz8DkujAcEvDsdrNHZyW82qe1ggBG2zG3qS/Xn6Z/4E3uK3PbQO6foqsvtsrt7qml9zU3ovY7+oA2t9nhfvJiZ7EkVz21fNbYRk7M4xkXWHoTOIwkAhWiFC2WBhRRaGKHX5iF7K79H4ncIKPbY6RnOnDOL8QFxIfF/ePvmSHa7CaBBKMgHK8llgpTBySFCcLPXi07YWho7opHkjK+VERkGm0Fm/S55nqBcQR2wsnT2AS8NxnkIJXVR58v70xoNayoV9lot6WUBBZSrRE=
@@ -15,7 +16,3 @@ deploy:
   app: BoatyFrontend
   env: Boatyfrontend-env
   bucket_name: elasticbeanstalk-us-east-1-076182840641
-addons:
-  artifacts:
-    paths:
-      - dist
