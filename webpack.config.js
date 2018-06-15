@@ -4,7 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
-    historyApiFallback: true
+    historyApiFallback: true,
+    proxy: {
+      '/api': 'http://localhost:3000'
+    }
   },
   entry: path.join(__dirname, 'src', 'main'),
   mode: 'development',
