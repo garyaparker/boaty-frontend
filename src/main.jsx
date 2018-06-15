@@ -11,8 +11,7 @@ const Main = () => (
     <Switch>
       <Route exact path="/" component={Landing} />
       <Route exact path="/login" component={Login} />
-      <Route path="/login/:username" component={Login} />
-      <Route path="/register" component={Register} />
+      <Route exact path="/register" component={Register} />
     </Switch>
   </BrowserRouter>
 );

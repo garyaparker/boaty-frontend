@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Card, CardBody, CardImage, CardTitle, CardText } from 'mdbreact';
+import axios from 'axios';
 
 export default class Register extends Component {
   constructor(props) {
@@ -70,6 +71,19 @@ export default class Register extends Component {
     this.captureImage();
   }
 
+  handleClickRegister(event) {
+    const base64String = this.image && this.image.src;
+    const base64Data = base64String.replace('data:image/jpeg;base64,', '');
+    const formData = new FormData();
+    const blob = new Blob([base64Data], { type: 'image/jpeg' });
+
+    formData.append('file', blob);
+
+    axios.post('/api/register', formData)
+      .then((res) => this.props.history.push('/login'))
+      .catch(console.error);
+  }
+
   render() {
     return (
       <div className="container">
@@ -87,7 +101,8 @@ export default class Register extends Component {
                 <CardTitle>Register</CardTitle>
                 <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
                 <Button onClick={this.handleClickStart.bind(this)}>Start Capture</Button>
-                <Button onClick={this.handleClickCapture.bind(this)}>Capture Photo</Button>
+                <Button onClick={this.handleClickCapture.bind(this)}>Capture Boaty</Button>
+                <Button onClick={this.handleClickRegister.bind(this)}>Register Boaty</Button>
               </CardBody>
             </Card>
           </div>
