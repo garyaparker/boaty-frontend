@@ -78,9 +78,10 @@ export default class Register extends Component {
     const blob = new Blob([base64Data], { type: 'image/jpeg' });
 
     formData.append('file', blob);
+    formData.append('userName', this.props.match.params.userName);
 
     axios.post('/api/register', formData)
-      .then((res) => this.props.history.push('/login'))
+      .then((res) => this.props.history.push(`/login/${this.props.match.params.userName}`))
       .catch(console.error);
   }
 

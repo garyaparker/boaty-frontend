@@ -21,9 +21,10 @@ export default class CardList extends Component {
                             <CardImage className="img-fluid" src="https://nc3t.com/wp-content/uploads/2016/08/boaty.jpg" />
                             <CardBody>
                                 <CardTitle>Welcome</CardTitle>
+                                <Input label="UserName" value={this.state.value} onChange={this.handleChange.bind(this)} />
                                 <div className="d-flex flex-column flex-md-row">
-                                    <Button href="/login">Login</Button>
-                                    <Button href="/register">Register</Button>
+                                    <Button href={`/login/${this.state.value}`}>Login</Button>
+                                    <Button href={`/register/${this.state.value}`}>Register</Button>
                                 </div>
                             </CardBody>
                         </Card>
