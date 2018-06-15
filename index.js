@@ -14,4 +14,6 @@ app.set('trust proxy', true);
 
 app.use(express.static('dist'));
 
+app.use(((req, res) => res.send()));
+
 app.listen(process.env.PORT || 3000);
