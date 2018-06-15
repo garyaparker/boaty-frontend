@@ -78,9 +78,9 @@ export default class login extends Component {
         const base64String = this.image && this.image.src;
         const base64Data = base64String.replace('data:image/jpeg:base64', '');
         const formData = new FormData();
-        // const blob = new Blob([base64Data], { type: 'image/jpeg'});
+        const blob = new Blob([base64Data], { type: 'image/jpeg'});
 
-        formData.append('file', base64Data);
+        formData.append('file', blob);
         formData.append('userName', this.props.match.params.userName);
         axios.post('/api/login', formData)
             .then((res) => this.props.history.push('/youLoggedInBruv'))
