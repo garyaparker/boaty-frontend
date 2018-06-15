@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./index.js",
-    "start:dev": "webpack-dev-server --open --port 3333",
+    "start": "webpack-dev-server --open --port 3333",
     "start:prod": "node ./index.js",
     "build": "webpack --mode production",
     "test": "echo \"Tests? Where we're going, we don't need tests.\" && exit 0"
