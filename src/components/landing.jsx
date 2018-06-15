@@ -13,17 +13,18 @@ export default class CardList extends Component {
     }
 
     render() {
+        const { history } = this.props;
         return (
             <div className="container">
                 <div className="row">
                     <div className="col-sm-12">
-                        <Card>
+                        <Card className="mt-3">
                             <CardImage className="img-fluid" src="https://nc3t.com/wp-content/uploads/2016/08/boaty.jpg" />
                             <CardBody>
                                 <CardTitle>Welcome</CardTitle>
                                 <div className="d-flex flex-column flex-md-row">
-                                    <Button href="/login">Login</Button>
-                                    <Button href="/register">Register</Button>
+                                    <Button onClick={() => history.push('/login')}>Login</Button>
+                                    <Button onClick={() => history.push('/register')}>Register</Button>
                                 </div>
                             </CardBody>
                         </Card>
