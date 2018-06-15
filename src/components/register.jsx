@@ -5,17 +5,20 @@ export default class Register extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      hasImage: false
-    };
-
     this.width = 320;
     this.height = 0;
     this.streaming = false;
   }
 
   captureImage() {
+    const canvas = this.canvas;
+    const context = canvas.getContext('2d');
+    canvas.width = this.width;
+    canvas.height = this.height;
+    context.drawImage(this.video, 0, 0, this.width, this.height);
 
+    const data = canvas.toDataURL('image/jpeg');
+    this.image.setAttribute('src', data);
   }
 
   getCanvasRef(canvas) {
@@ -32,20 +35,18 @@ export default class Register extends Component {
     video.addEventListener('canplay', () => {
       if (!this.streaming) {
         this.height = video.videoHeight / (video.videoWidth / this.width);
-        video.setAttribute('width', width);
-        video.setAttribute('height', height);
-        this.canvas.setAttribute('width', width);
-        this.canvas.setAttribute('height', height);
+        video.setAttribute('width', this.width);
+        video.setAttribute('height', this.height);
+        this.canvas.setAttribute('width', this.width);
+        this.canvas.setAttribute('height', this.height);
         this.streaming = true;
       }
     }, false);
   }
 
-  handleClickAgain(event) {
-    this.setState({ hasImage: false });
-  }
+  handleClickStart(event) {
+    event.target.style.display = 'none';
 
-  handleClick(event) {
     if (navigator.mediaDevices) {
       navigator.mediaDevices.getUserMedia({
         audio: false,
@@ -63,6 +64,10 @@ export default class Register extends Component {
     }
   }
 
+  handleClickCapture(event) {
+    this.captureImage();
+  }
+
   render() {
     return (
       <div className="container">
@@ -70,27 +75,17 @@ export default class Register extends Component {
           <div className="col-sm-12">
             <canvas ref={(canvas) => this.getCanvasRef(canvas)} className="capture-canvas"></canvas>
             <Card className="mt-3">
-              {
-                this.state.hasImage ? (
-                  <CardImage
-                    ref={(image) => this.getImageRef(image)}
-                    className="img-fluid"
-                    src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%282%29.jpg"
-                  />
-                ) : (
-                  <video ref={(video) => this.getVideoRef(video)} className="img-fluid"></video>
-                )
-              }
+              <img
+                ref={(image) => this.getImageRef(image)}
+                className="img-fluid"
+                src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%282%29.jpg"
+              />
+              <video ref={(video) => this.getVideoRef(video)} className="img-fluid"></video>
               <CardBody>
                 <CardTitle>Register</CardTitle>
                 <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                {
-                  this.state.hasImage ? (
-                    <Button onClick={this.handleClickAgain.bind(this)}>Capture Again</Button>
-                  ) : (
-                    <Button onClick={this.handleClick.bind(this)}>Start Capture</Button>
-                  )
-                }
+                <Button onClick={this.handleClickStart.bind(this)}>Start Capture</Button>
+                <Button onClick={this.handleClickCapture.bind(this)}>Capture Photo</Button>
               </CardBody>
             </Card>
           </div>
