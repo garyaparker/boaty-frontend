@@ -34,18 +34,20 @@ export default class login extends Component {
     }
 
     getVideoRef(video) {
-        this.video = video;
+        if (video) {
+            this.video = video;
 
-        video.addEventListener('canplay', () => {
-            if (!this.streaming) {
-                this.height = video.videoHeight / (video.videoWidth / this.width);
-                video.setAttribute('width', this.width);
-                video.setAttribute('height', this.height);
-                this.canvas.setAttribute('width', this.width);
-                this.canvas.setAttribute('height', this.height);
-                this.streaming = true;
-            }
-        }, false);
+            video.addEventListener('canplay', () => {
+                if (!this.streaming) {
+                    this.height = video.videoHeight / (video.videoWidth / this.width);
+                    video.setAttribute('width', this.width);
+                    video.setAttribute('height', this.height);
+                    this.canvas.setAttribute('width', this.width);
+                    this.canvas.setAttribute('height', this.height);
+                    this.streaming = true;
+                }
+            }, false);
+        }
     }
 
     handleClickStart(event) {
