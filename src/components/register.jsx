@@ -19,6 +19,8 @@ export default class Register extends Component {
 
     const data = canvas.toDataURL('image/jpeg');
     this.image.setAttribute('src', data);
+    this.image.setAttribute('width', this.width);
+    this.image.setAttribute('height', this.height);
   }
 
   getCanvasRef(canvas) {
@@ -78,7 +80,7 @@ export default class Register extends Component {
               <img
                 ref={(image) => this.getImageRef(image)}
                 className="img-fluid"
-                src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%282%29.jpg"
+                src="https://nc3t.com/wp-content/uploads/2016/08/boaty.jpg"
               />
               <video ref={(video) => this.getVideoRef(video)} className="img-fluid"></video>
               <CardBody>
